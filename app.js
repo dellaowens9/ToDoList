@@ -1,0 +1,55 @@
+
+function addTask(){
+    //get input field and task list elements 
+    let taskInput = document.getElementById("new-task");
+    let taskList = document.getElementById("incomplete-tasks");
+    let completeTask = document.getElementById("completed-tasks")
+    
+    //check if input is not empty or contains only white space
+
+    if (taskInput.value != ""){
+        //create list item 
+        let li = document.createElement("li")
+        
+        //add task to the list item 
+        let checkbox = document.createElement("input")
+        checkbox.type = "checkbox"
+        li.append(checkbox) 
+        li.appendChild(document.createTextNode(taskInput.value))
+    
+        let editButton = document.createElement("button")
+        editButton.innerText = "Edit";
+        li.appendChild(editButton);
+
+        let deleteButton = document.createElement("button")        
+        deleteButton.innerText = "Delete";
+        
+        li.appendChild(deleteButton);
+
+        //display the list item of each task
+        taskList.append(li)
+        
+
+        //clear input field 
+        taskInput.value = ""; 
+    }
+}
+
+function deleteAll(){
+    let taskList = document.getElementsByTagName("li");
+    for(let i = 0; i < taskList.length; i++){
+        taskList[i].remove()
+    }
+}
+
+function deleteTask(){
+    let taskList = document.getElementsByTagName("li");
+    for(let i = taskList.length-1; i < taskList.length; i++){
+        taskList[i].remove()
+    }
+}
+
+function editTask() {
+    let updateTask = document.createElement("input")
+    input.type = "text"
+}
