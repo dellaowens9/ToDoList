@@ -2,7 +2,7 @@
 function addTask(){
     //get input field and task list elements 
     let taskInput = document.getElementById("new-task");
-    let taskList = document.getElementById("incomplete-tasks");
+    let incompleteList = document.getElementById("incomplete-tasks");
     let completeTask = document.getElementById("completed-tasks")
     
     //check if input is not empty or contains only white space
@@ -15,19 +15,20 @@ function addTask(){
         let checkbox = document.createElement("input")
         checkbox.type = "checkbox"
         li.append(checkbox) 
+        
         li.appendChild(document.createTextNode(taskInput.value))
     
         let editButton = document.createElement("button")
         editButton.innerText = "Edit";
+        editButton.setAttribute("onclick", "editTask()")
         li.appendChild(editButton);
 
         let deleteButton = document.createElement("button")        
         deleteButton.innerText = "Delete";
-        
+        deleteButton.setAttribute("onclick", "deleteTask()")
         li.appendChild(deleteButton);
-
         //display the list item of each task
-        taskList.append(li)
+        incompleteList.append(li)
         
 
         //clear input field 
@@ -51,5 +52,5 @@ function deleteTask(){
 
 function editTask() {
     let updateTask = document.createElement("input")
-    input.type = "text"
+    updateTask.type = "text"
 }
