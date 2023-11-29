@@ -14,7 +14,20 @@ function addTask(){
         //add task to the list item 
         let checkbox = document.createElement("input")
         checkbox.type = "checkbox"
-        li.append(checkbox) 
+        checkbox.name = "name"
+        checkbox.value = "value"
+
+        checkbox.setAttribute("onclick", "removeCheckedCheckboxes()" )
+
+        // if (checkbox.checked){
+        //     checkbox.setAttribute("onclick", "removeCheckedCheckboxes()" )
+        // }
+   
+        let label = document.createElement("label")
+        label.appendChild(checkbox)
+        label.appendChild(document.createTextNode(taskInput.value))
+        
+        li.appendChild(checkbox) 
         
         li.appendChild(document.createTextNode(taskInput.value))
     
@@ -54,3 +67,12 @@ function editTask() {
     let updateTask = document.createElement("input")
     updateTask.type = "text"
 }
+
+function removeCheckedCheckboxes() {
+    let taskList = document.getElementsByTagName("li");
+    let taskItem = document.activeElement.parentElement
+    let completeTask = document.getElementById("completed-tasks")
+    console.log(taskItem)
+    completeTask.appendChild(taskItem)
+    }
+
